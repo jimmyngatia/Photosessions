@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Houses - Dwello</title>
+    <link rel="stylesheet" href="listings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Dwello</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" class="active">Houses</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Agents</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="icon-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="btn">Sign up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Available Houses</h1>
+                <p>Discover your perfect home from our curated collection of premium properties</p>
+            </div>
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <select class="filter-select">
+                        <option>All Locations</option>
+                        <option>Kensington Market</option>
+                        <option>Downtown</option>
+                        <option>Westside</option>
+                        <option>Eastside</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select class="filter-select">
+                        <option>All Types</option>
+                        <option>Apartment</option>
+                        <option>House</option>
+                        <option>Condo</option>
+                        <option>Studio</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select class="filter-select">
+                        <option>Price Range</option>
+                        <option>Under KSH 2000</option>
+                        <option>KSH 2000 - 4000</option>
+                        <option>KSH 4000 - 6000</option>
+                        <option>Above KSH 6000</option>
+                    </select>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Houses Grid -->
+    <section class="houses-section">
+        <div class="container">
+            <div class="houses-grid" id="housesGrid">
+                <!-- House Card 1 -->
+                <div class="house-card">
+                    <div class="card-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dwello1-mJCchs4VTPKT025c2obQqNAnk0dBVI.png" alt="Modern residence">
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="image-badge">Featured</div>
+                        <div class="image-overlay">
+                            <button class="view-btn-overlay">View Details</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kensington Market</span>
+                        </div>
+                        <h3 class="property-title">Modern Family Home</h3>
+                        <div class="details">
+                            <div class="detail">
+                                <i class="fas fa-home"></i>
+                                <span>3 rooms</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>2000 sq ft</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-bath"></i>
+                                <span>2 baths</span>
+                            </div>
+                        </div>
+                        <div class="amenities">
+                            <span class="amenity">WiFi</span>
+                            <span class="amenity">Parking</span>
+                            <span class="amenity">Garden</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">KSH 2,500<span>/month</span></div>
+                            <button class="btn-contact">Contact</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- House Card 2 -->
+                <div class="house-card">
+                    <div class="card-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dwello1-mJCchs4VTPKT025c2obQqNAnk0dBVI.png" alt="Luxury apartment">
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="image-overlay">
+                            <button class="view-btn-overlay">View Details</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Downtown</span>
+                        </div>
+                        <h3 class="property-title">Luxury Downtown Apartment</h3>
+                        <div class="details">
+                            <div class="detail">
+                                <i class="fas fa-home"></i>
+                                <span>2 rooms</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>1500 sq ft</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-bath"></i>
+                                <span>1 bath</span>
+                            </div>
+                        </div>
+                        <div class="amenities">
+                            <span class="amenity">WiFi</span>
+                            <span class="amenity">Gym</span>
+                            <span class="amenity">Pool</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">KSH 3,500<span>/month</span></div>
+                            <button class="btn-contact">Contact</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- House Card 3 -->
+                <div class="house-card tall">
+                    <div class="card-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dwello1-mJCchs4VTPKT025c2obQqNAnk0dBVI.png" alt="Cozy studio">
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="image-overlay">
+                            <button class="view-btn-overlay">View Details</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Westside</span>
+                        </div>
+                        <h3 class="property-title">Cozy Studio Apartment</h3>
+                        <div class="details">
+                            <div class="detail">
+                                <i class="fas fa-home"></i>
+                                <span>1 room</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>800 sq ft</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-bath"></i>
+                                <span>1 bath</span>
+                            </div>
+                        </div>
+                        <div class="amenities">
+                            <span class="amenity">WiFi</span>
+                            <span class="amenity">Furnished</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">KSH 1,800<span>/month</span></div>
+                            <button class="btn-contact">Contact</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- House Card 4 -->
+                <div class="house-card">
+                    <div class="card-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dwello1-mJCchs4VTPKT025c2obQqNAnk0dBVI.png" alt="Family house">
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="image-badge">New</div>
+                        <div class="image-overlay">
+                            <button class="view-btn-overlay">View Details</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Eastside</span>
+                        </div>
+                        <h3 class="property-title">Spacious Family House</h3>
+                        <div class="details">
+                            <div class="detail">
+                                <i class="fas fa-home"></i>
+                                <span>4 rooms</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>2800 sq ft</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-bath"></i>
+                                <span>3 baths</span>
+                            </div>
+                        </div>
+                        <div class="amenities">
+                            <span class="amenity">WiFi</span>
+                            <span class="amenity">Parking</span>
+                            <span class="amenity">Garden</span>
+                            <span class="amenity">Garage</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">KSH 4,200<span>/month</span></div>
+                            <button class="btn-contact">Contact</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- House Card 5 -->
+                <div class="house-card">
+                    <div class="card-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dwello1-mJCchs4VTPKT025c2obQqNAnk0dBVI.png" alt="Modern condo">
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="image-overlay">
+                            <button class="view-btn-overlay">View Details</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kensington Market</span>
+                        </div>
+                        <h3 class="property-title">Modern Condo</h3>
+                        <div class="details">
+                            <div class="detail">
+                                <i class="fas fa-home"></i>
+                                <span>2 rooms</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>1200 sq ft</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-bath"></i>
+                                <span>2 baths</span>
+                            </div>
+                        </div>
+                        <div class="amenities">
+                            <span class="amenity">WiFi</span>
+                            <span class="amenity">Balcony</span>
+                            <span class="amenity">Elevator</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">KSH 3,000<span>/month</span></div>
+                            <button class="btn-contact">Contact</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- House Card 6 -->
+                <div class="house-card tall">
+                    <div class="card-image">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dwello1-mJCchs4VTPKT025c2obQqNAnk0dBVI.png" alt="Penthouse">
+                        <button class="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="image-badge">Premium</div>
+                        <div class="image-overlay">
+                            <button class="view-btn-overlay">View Details</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Downtown</span>
+                        </div>
+                        <h3 class="property-title">Luxury Penthouse</h3>
+                        <div class="details">
+                            <div class="detail">
+                                <i class="fas fa-home"></i>
+                                <span>3 rooms</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>3500 sq ft</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-bath"></i>
+                                <span>3 baths</span>
+                            </div>
+                        </div>
+                        <div class="amenities">
+                            <span class="amenity">WiFi</span>
+                            <span class="amenity">Terrace</span>
+                            <span class="amenity">Concierge</span>
+                            <span class="amenity">Gym</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">KSH 6,500<span>/month</span></div>
+                            <button class="btn-contact">Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading indicator -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Loading more properties...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="listings.js"></script>
+</body>
+</html>

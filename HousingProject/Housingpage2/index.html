@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise Student Residence - Dwello</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1 class="logo">Dwello</h1>
+                <span class="tagline">Student Living</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Hostels</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn-secondary">Sign In</button>
+                <button class="btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Image Gallery -->
+                    <section class="image-gallery">
+                        <div class="main-image-container">
+                            <img id="mainImage" src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&h=500&fit=crop" alt="Hostel Main View" class="main-image">
+                            <button class="favorite-btn" id="favoriteBtn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="image-badge">
+                                <span>Premium</span>
+                            </div>
+                        </div>
+                        <div class="thumbnail-grid">
+                            <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=200&h=150&fit=crop" alt="Exterior View" class="thumbnail active" onclick="changeMainImage(this)">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=150&fit=crop" alt="Room Interior" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=200&h=150&fit=crop" alt="Common Area" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=150&fit=crop" alt="Kitchen" class="thumbnail" onclick="changeMainImage(this)">
+                        </div>
+                    </section>
+
+                    <!-- Hostel Information -->
+                    <section class="hostel-info">
+                        <div class="info-header">
+                            <div class="title-section">
+                                <h1 class="hostel-name">Sunrise Student Residence</h1>
+                                <div class="location-info">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Sector 15, Near University Campus, Noida</span>
+                                </div>
+                                <div class="distance-info">
+                                    <i class="fas fa-walking"></i>
+                                    <span>5 minutes walk to campus</span>
+                                </div>
+                            </div>
+                            <div class="price-section">
+                                <div class="price">₹12,000</div>
+                                <div class="price-period">per month</div>
+                            </div>
+                        </div>
+
+                        <div class="info-details">
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <i class="fas fa-bed"></i>
+                                    <div>
+                                        <span class="detail-label">Room Type</span>
+                                        <span class="detail-value">Single AC Room</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <span class="detail-label">Occupancy</span>
+                                        <span class="detail-value">1 Person</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-home"></i>
+                                    <div>
+                                        <span class="detail-label">Furnishing</span>
+                                        <span class="detail-value">Fully Furnished</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <div>
+                                        <span class="detail-label">Available From</span>
+                                        <span class="detail-value">Immediate</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="amenities-section">
+                                <h3>Amenities & Utilities</h3>
+                                <div class="amenities-grid">
+                                    <div class="amenity-item">
+                                        <i class="fas fa-wifi"></i>
+                                        <span>High-Speed WiFi</span>
+                                    </div>
+                                    <div class="amenity-item">
+                                        <i class="fas fa-tint"></i>
+                                        <span>24/7 Water Supply</span>
+                                    </div>
+                                    <div class="amenity-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>24/7 Security</span>
+                                    </div>
+                                    <div class="amenity-item">
+                                        <i class="fas fa-bolt"></i>
+                                        <span>Power Backup</span>
+                                    </div>
+                                    <div class="amenity-item">
+                                        <i class="fas fa-utensils"></i>
+                                        <span>Common Kitchen</span>
+                                    </div>
+                                    <div class="amenity-item">
+                                        <i class="fas fa-car"></i>
+                                        <span>Parking Available</span>
+                                    </div>
+                                    <div class="amenity-item">
+                                        <i class="fas fa-dumbbell"></i>
+                                        <span>Gym Access</span>
+                                    </div>
+                                    <div class="amenity-item">
+                                        <i class="fas fa-tv"></i>
+                                        <span>Common TV Room</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Ratings Section -->
+                    <section class="ratings-section">
+                        <h3>Ratings & Reviews</h3>
+                        <div class="ratings-grid">
+                            <div class="rating-item">
+                                <div class="rating-header">
+                                    <span class="rating-label">Cleanliness</span>
+                                    <span class="rating-score">4.8</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 96%"></div>
+                                </div>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-header">
+                                    <span class="rating-label">Safety</span>
+                                    <span class="rating-score">4.9</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 98%"></div>
+                                </div>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <div class="rating-header">
+                                    <span class="rating-label">Internet Speed</span>
+                                    <span class="rating-score">4.7</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 94%"></div>
+                                </div>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Map Section -->
+                    <section class="map-section">
+                        <h3>Location</h3>
+                        <div class="map-container">
+                            <div class="map-placeholder">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <p>Interactive Map</p>
+                                <span>Sector 15, Near University Campus, Noida</span>
+                            </div>
+                        </div>
+                        <div class="location-details">
+                            <div class="location-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>University Campus - 5 min walk</span>
+                            </div>
+                            <div class="location-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Shopping Mall - 10 min walk</span>
+                            </div>
+                            <div class="location-item">
+                                <i class="fas fa-bus"></i>
+                                <span>Bus Stop - 3 min walk</span>
+                            </div>
+                            <div class="location-item">
+                                <i class="fas fa-subway"></i>
+                                <span>Metro Station - 15 min walk</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Comments Section -->
+                    <section class="comments-section">
+                        <div class="comments-header">
+                            <h3>Student Reviews</h3>
+                            <button class="btn-secondary">Write a Review</button>
+                        </div>
+                        
+                        <div class="comments-list">
+                            <div class="comment-item">
+                                <div class="comment-avatar">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face" alt="Sarah">
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <span class="comment-author">Sarah Chen</span>
+                                        <span class="comment-date">2 days ago</span>
+                                        <div class="comment-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <p class="comment-text">Amazing place to stay! The room is spacious and clean. Internet speed is excellent for online classes. The location is perfect - just a 5-minute walk to campus. Highly recommend!</p>
+                                    <div class="comment-actions">
+                                        <button class="action-btn">
+                                            <i class="far fa-thumbs-up"></i>
+                                            <span>12</span>
+                                        </button>
+                                        <button class="action-btn">
+                                            <i class="far fa-comment"></i>
+                                            <span>Reply</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Reply -->
+                                    <div class="reply-item">
+                                        <div class="comment-avatar">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Mike">
+                                        </div>
+                                        <div class="comment-content">
+                                            <div class="comment-header">
+                                                <span class="comment-author">Mike Johnson</span>
+                                                <span class="comment-date">1 day ago</span>
+                                            </div>
+                                            <p class="comment-text">I totally agree! Been living here for 6 months and it's been great.</p>
+                                            <div class="comment-actions">
+                                                <button class="action-btn">
+                                                    <i class="far fa-thumbs-up"></i>
+                                                    <span>3</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comment-item">
+                                <div class="comment-avatar">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="Alex">
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <span class="comment-author">Alex Rodriguez</span>
+                                        <span class="comment-date">1 week ago</span>
+                                        <div class="comment-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <p class="comment-text">Great security and the staff is very helpful. The common areas are well-maintained. Only minor issue is the parking can get crowded during peak hours.</p>
+                                    <div class="comment-actions">
+                                        <button class="action-btn">
+                                            <i class="far fa-thumbs-up"></i>
+                                            <span>8</span>
+                                        </button>
+                                        <button class="action-btn">
+                                            <i class="far fa-comment"></i>
+                                            <span>Reply</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comment-item">
+                                <div class="comment-avatar">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face" alt="Priya">
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <span class="comment-author">Priya Sharma</span>
+                                        <span class="comment-date">2 weeks ago</span>
+                                        <div class="comment-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <p class="comment-text">Perfect for students! The study environment is excellent and the common kitchen is well-equipped. The management is very responsive to any issues.</p>
+                                    <div class="comment-actions">
+                                        <button class="action-btn">
+                                            <i class="far fa-thumbs-up"></i>
+                                            <span>15</span>
+                                        </button>
+                                        <button class="action-btn">
+                                            <i class="far fa-comment"></i>
+                                            <span>Reply</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="load-more-btn">Load More Reviews</button>
+                    </section>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div class="right-sidebar">
+                    <!-- Booking Panel -->
+                    <div class="booking-panel">
+                        <div class="booking-header">
+                            <div class="booking-price">
+                                <span class="price">₹12,000</span>
+                                <span class="period">per month</span>
+                            </div>
+                            <button class="favorite-btn-sidebar" id="favoriteBtn2">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+
+                        <div class="booking-form">
+                            <div class="form-group">
+                                <label>Move-in Date</label>
+                                <input type="date" class="form-input" id="moveInDate">
+                            </div>
+                            <div class="form-group">
+                                <label>Duration</label>
+                                <select class="form-input">
+                                    <option>1 Month</option>
+                                    <option>3 Months</option>
+                                    <option>6 Months</option>
+                                    <option>12 Months</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="booking-summary">
+                            <div class="summary-item">
+                                <span>Monthly Rent</span>
+                                <span>₹12,000</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Security Deposit</span>
+                                <span>₹5,000</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Maintenance</span>
+                                <span>₹1,000</span>
+                            </div>
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <span>₹18,000</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-book">Book Hostel</button>
+                        <button class="btn-contact">Contact Owner</button>
+
+                        <!-- House Rules Dropdown -->
+                        <div class="house-rules">
+                            <button class="rules-toggle" onclick="toggleRules()">
+                                <span>House Rules</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="rules-content" id="rulesContent">
+                                <ul>
+                                    <li>No smoking inside the premises</li>
+                                    <li>No loud music after 10 PM</li>
+                                    <li>Visitors allowed till 9 PM only</li>
+                                    <li>Keep common areas clean</li>
+                                    <li>No pets allowed</li>
+                                    <li>Monthly rent due by 5th of every month</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Info -->
+                    <div class="quick-info">
+                        <h4>Quick Information</h4>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-label">Property Type</span>
+                                <span class="info-value">Student Hostel</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Total Rooms</span>
+                                <span class="info-value">50</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Available Rooms</span>
+                                <span class="info-value">3</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Gender</span>
+                                <span class="info-value">Co-ed</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Food</span>
+                                <span class="info-value">Optional</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 98765 43210</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@sunriseresidence.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>www.sunriseresidence.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

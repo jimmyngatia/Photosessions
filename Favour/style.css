@@ -1,0 +1,25 @@
+.us{
+    width: 400px;
+    height: 400px;
+}
+
+#paragraph{
+    color: red;
+}
+#marksTable th,td{
+    width: 30%;
+    padding: 8px;
+    border: 1px solid black;
+}
+#marksTable{
+    border: solid;
+    border-color: red;
+}
+#myDiv{
+    height: 200px;
+    width: 400px;
+    background-color:aqua;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: solid/>;
+}

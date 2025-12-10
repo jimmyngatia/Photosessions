@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account & Notifications - Dwello</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1 class="logo">Dwello</h1>
+                <span class="tagline">Student Living</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Hostels</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="notification-bell" onclick="toggleNotificationDropdown()">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge" id="notificationBadge">3</span>
+                </div>
+                <button class="btn-secondary">
+                    <i class="fas fa-user"></i> Account
+                </button>
+                <button class="btn-primary">Sign out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="breadcrumb">
+                    <a href="#" class="breadcrumb-link">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span class="breadcrumb-current">My Account</span>
+                </div>
+                <h1 class="page-title">My Account & Notifications</h1>
+                <p class="page-subtitle">Manage your account settings and stay updated with your inquiries</p>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Left Sidebar - Account Navigation -->
+                <div class="account-sidebar">
+                    <div class="sidebar-card">
+                        <div class="user-profile">
+                            <div class="profile-avatar">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="User Avatar" id="userAvatar">
+                                <button class="avatar-edit" onclick="changeAvatar()">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                            <div class="profile-info">
+                                <h3 class="profile-name" id="userName">John Doe</h3>
+                                <p class="profile-email" id="userEmail">john.doe@student.edu</p>
+                                <span class="profile-status verified">
+                                    <i class="fas fa-check-circle"></i> Verified Student
+                                </span>
+                            </div>
+                        </div>
+
+                        <nav class="account-nav">
+                            <a href="#" class="nav-item active" data-tab="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                                <span class="nav-badge">5</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="account">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Account Settings</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="inquiries">
+                                <i class="fas fa-envelope"></i>
+                                <span>My Inquiries</span>
+                                <span class="nav-badge">2</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="favorites">
+                                <i class="fas fa-heart"></i>
+                                <span>Saved Properties</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="bookings">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>My Bookings</span>
+                            </a>
+                            <a href="#" class="nav-item" data-tab="security">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Security</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="main-panel">
+                    <!-- Notifications Tab -->
+                    <div class="tab-content active" id="notifications">
+                        <div class="content-header">
+                            <h2>Notifications</h2>
+                            <div class="header-actions">
+                                <button class="btn-secondary" onclick="markAllAsRead()">
+                                    <i class="fas fa-check-double"></i> Mark All Read
+                                </button>
+                                <button class="btn-secondary" onclick="clearAllNotifications()">
+                                    <i class="fas fa-trash"></i> Clear All
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Notification Filters -->
+                        <div class="notification-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="inquiries">Inquiries</button>
+                            <button class="filter-btn" data-filter="bookings">Bookings</button>
+                            <button class="filter-btn" data-filter="system">System</button>
+                        </div>
+
+                        <!-- Notifications List -->
+                        <div class="notifications-list">
+                            <!-- Inquiry Response Notification -->
+                            <div class="notification-item unread" data-type="inquiries">
+                                <div class="notification-icon inquiry">
+                                    <i class="fas fa-reply"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-header">
+                                        <h4>Response to Your Inquiry</h4>
+                                        <span class="notification-time">2 hours ago</span>
+                                    </div>
+                                    <p class="notification-message">
+                                        <strong>Sunrise Student Residence</strong> has responded to your inquiry. 
+                                        "Thank you for your interest! We have availability and would love to schedule a viewing."
+                                    </p>
+                                    <div class="notification-actions">
+                                        <button class="btn-primary btn-sm" onclick="viewInquiryDetails('inquiry-1')">
+                                            <i class="fas fa-eye"></i> View Response
+                                        </button>
+                                        <button class="btn-secondary btn-sm" onclick="replyToInquiry('inquiry-1')">
+                                            <i class="fas fa-reply"></i> Reply
+                                        </button>
+                                    </div>
+                                </div>
+                                <button class="notification-close" onclick="dismissNotification(this)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+
+                            <!-- New Property Match -->
+                            <div class="notification-item unread" data-type="system">
+                                <div class="notification-icon match">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-header">
+                                        <h4>New Property Match</h4>
+                                        <span class="notification-time">5 hours ago</span>
+                                    </div>
+                                    <p class="notification-message">
+                                        We found a new property that matches your preferences: 
+                                        <strong>Modern Studio near Campus</strong> - Ksh 25,000/month
+                                    </p>
+                                    <div class="notification-actions">
+                                        <button class="btn-primary btn-sm" onclick="viewProperty('property-123')">
+                                            <i class="fas fa-eye"></i> View Property
+                                        </button>
+                                        <button class="btn-secondary btn-sm" onclick="saveProperty('property-123')">
+                                            <i class="fas fa-heart"></i> Save
+                                        </button>
+                                    </div>
+                                </div>
+                                <button class="notification-close" onclick="dismissNotification(this)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+
+                            <!-- Booking Confirmation -->
+                            <div class="notification-item" data-type="bookings">
+                                <div class="notification-icon booking">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-header">
+                                        <h4>Booking Confirmed</h4>
+                                        <span class="notification-time">1 day ago</span>
+                                    </div>
+                                    <p class="notification-message">
+                                        Your booking for <strong>Sunrise Student Residence</strong> has been confirmed. 
+                                        Move-in date: March 15, 2024
+                                    </p>
+                                    <div class="notification-actions">
+                                        <button class="btn-primary btn-sm" onclick="viewBooking('booking-456')">
+                                            <i class="fas fa-file-alt"></i> View Details
+                                        </button>
+                                        <button class="btn-secondary btn-sm" onclick="downloadContract('booking-456')">
+                                            <i class="fas fa-download"></i> Download Contract
+                                        </button>
+                                    </div>
+                                </div>
+                                <button class="notification-close" onclick="dismissNotification(this)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+
+                            <!-- Landlord Message -->
+                            <div class="notification-item unread" data-type="inquiries">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-comment"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-header">
+                                        <h4>New Message from Landlord</h4>
+                                        <span class="notification-time">3 days ago</span>
+                                    </div>
+                                    <p class="notification-message">
+                                        <strong>Green Valley Hostel</strong>: "Hi John, we have a special discount available for early bookings. Would you like to know more?"
+                                    </p>
+                                    <div class="notification-actions">
+                                        <button class="btn-primary btn-sm" onclick="openChat('landlord-789')">
+                                            <i class="fas fa-comments"></i> Open Chat
+                                        </button>
+                                    </div>
+                                </div>
+                                <button class="notification-close" onclick="dismissNotification(this)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+
+                            <!-- System Update -->
+                            <div class="notification-item" data-type="system">
+                                <div class="notification-icon system">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-header">
+                                        <h4>Account Verification Complete</h4>
+                                        <span class="notification-time">1 week ago</span>
+                                    </div>
+                                    <p class="notification-message">
+                                        Congratulations! Your student verification has been completed. You now have access to exclusive student discounts.
+                                    </p>
+                                </div>
+                                <button class="notification-close" onclick="dismissNotification(this)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Load More -->
+                        <div class="load-more-section">
+                            <button class="btn-secondary load-more-btn" onclick="loadMoreNotifications()">
+                                <i class="fas fa-chevron-down"></i> Load More Notifications
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Account Settings Tab -->
+                    <div class="tab-content" id="account">
+                        <div class="content-header">
+                            <h2>Account Settings</h2>
+                            <p>Manage your personal information and preferences</p>
+                        </div>
+
+                        <div class="settings-grid">
+                            <!-- Personal Information -->
+                            <div class="settings-card">
+                                <h3>Personal Information</h3>
+                                <form class="settings-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="firstName">First Name</label>
+                                            <input type="text" id="firstName" value="John" class="form-input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName">Last Name</label>
+                                            <input type="text" id="lastName" value="Doe" class="form-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" value="john.doe@student.edu" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" value="+254 712 345 678" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="university">University</label>
+                                        <select id="university" class="form-input">
+                                            <option>University of Nairobi</option>
+                                            <option>Kenyatta University</option>
+                                            <option>Strathmore University</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn-primary">
+                                        <i class="fas fa-save"></i> Save Changes
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Preferences -->
+                            <div class="settings-card">
+                                <h3>Preferences</h3>
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Email Notifications</h4>
+                                        <p>Receive updates about inquiries and bookings</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>SMS Notifications</h4>
+                                        <p>Get important updates via SMS</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Property Recommendations</h4>
+                                        <p>Receive personalized property suggestions</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- My Inquiries Tab -->
+                    <div class="tab-content" id="inquiries">
+                        <div class="content-header">
+                            <h2>My Inquiries</h2>
+                            <p>Track your property inquiries and responses</p>
+                        </div>
+
+                        <div class="inquiries-list">
+                            <div class="inquiry-item">
+                                <div class="inquiry-property">
+                                    <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=100&h=80&fit=crop" alt="Property">
+                                    <div class="property-info">
+                                        <h4>Sunrise Student Residence</h4>
+                                        <p>Sector 15, Near University Campus</p>
+                                        <span class="price">Ksh 30,000/month</span>
+                                    </div>
+                                </div>
+                                <div class="inquiry-status">
+                                    <span class="status-badge responded">Responded</span>
+                                    <span class="inquiry-date">Sent 2 days ago</span>
+                                </div>
+                                <div class="inquiry-actions">
+                                    <button class="btn-primary btn-sm" onclick="viewInquiryDetails('inquiry-1')">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn-secondary btn-sm" onclick="replyToInquiry('inquiry-1')">
+                                        <i class="fas fa-reply"></i> Reply
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="inquiry-item">
+                                <div class="inquiry-property">
+                                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=100&h=80&fit=crop" alt="Property">
+                                    <div class="property-info">
+                                        <h4>Green Valley Hostel</h4>
+                                        <p>Westlands, Near Shopping Mall</p>
+                                        <span class="price">Ksh 25,000/month</span>
+                                    </div>
+                                </div>
+                                <div class="inquiry-status">
+                                    <span class="status-badge pending">Pending</span>
+                                    <span class="inquiry-date">Sent 5 days ago</span>
+                                </div>
+                                <div class="inquiry-actions">
+                                    <button class="btn-primary btn-sm" onclick="viewInquiryDetails('inquiry-2')">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn-secondary btn-sm" onclick="followUpInquiry('inquiry-2')">
+                                        <i class="fas fa-paper-plane"></i> Follow Up
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other tabs would be implemented similarly -->
+                    <div class="tab-content" id="favorites">
+                        <div class="content-header">
+                            <h2>Saved Properties</h2>
+                            <p>Properties you've saved for later</p>
+                        </div>
+                        <div class="empty-state">
+                            <i class="fas fa-heart"></i>
+                            <h3>No saved properties yet</h3>
+                            <p>Start exploring properties and save your favorites here</p>
+                            <button class="btn-primary">Browse Properties</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="bookings">
+                        <div class="content-header">
+                            <h2>My Bookings</h2>
+                            <p>Your current and past bookings</p>
+                        </div>
+                        <div class="empty-state">
+                            <i class="fas fa-calendar-check"></i>
+                            <h3>No bookings yet</h3>
+                            <p>When you book a property, it will appear here</p>
+                            <button class="btn-primary">Find Properties</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="security">
+                        <div class="content-header">
+                            <h2>Security Settings</h2>
+                            <p>Manage your password and security preferences</p>
+                        </div>
+                        <div class="settings-card">
+                            <h3>Change Password</h3>
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" id="currentPassword" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword" class="form-input">
+                                </div>
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-lock"></i> Update Password
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="index.js.js"></script>
+</body>
+</html>

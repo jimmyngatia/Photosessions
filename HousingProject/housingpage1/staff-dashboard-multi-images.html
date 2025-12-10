@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Add House | Dwello</title>
+    <link rel="stylesheet" href="staff-styles-multi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Dwello</a>
+                <span class="staff-badge">Staff Portal</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="houses.html">Houses</a></li>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="#">Reports</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Staff Member</span>
+                </div>
+                <button class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Navigation -->
+    <section class="dashboard-nav">
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="tab-btn active" data-tab="add-house">
+                    <i class="fas fa-plus"></i>
+                    Add New House
+                </button>
+                <button class="tab-btn" data-tab="my-houses">
+                    <i class="fas fa-home"></i>
+                    My Houses
+                </button>
+                <button class="tab-btn" data-tab="analytics">
+                    <i class="fas fa-chart-bar"></i>
+                    Analytics
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Add House Tab -->
+            <div class="tab-content active" id="add-house">
+                <div class="page-header">
+                    <h1>Add New House</h1>
+                    <p>Fill in the details below to add a new property to the listings</p>
+                </div>
+
+                <div class="form-container">
+                    <form class="house-form" id="houseForm" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <!-- Image Upload Section -->
+                        <div class="form-section">
+                            <h3>Property Images</h3>
+                            
+                            <!-- Main Image Upload -->
+                            <div class="image-section">
+                                <h4>Main Property Image <span class="required">*</span></h4>
+                                <p class="field-help">This will be the primary image shown in listings</p>
+                                
+                                <div class="image-upload-area">
+                                    <div class="upload-zone" id="mainUploadZone">
+                                        <div class="upload-content">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <h4>Upload Main Image</h4>
+                                            <p>Drag and drop an image here, or click to select</p>
+                                            <span class="file-types">PNG, JPG, JPEG up to 5MB</span>
+                                        </div>
+                                        <input type="file" id="mainImage" name="main_image" accept="image/*" hidden required>
+                                    </div>
+                                    <div class="image-preview" id="mainImagePreview" style="display: none;">
+                                        <img id="mainPreviewImg" src="/placeholder.svg" alt="Preview">
+                                        <button type="button" class="remove-image" id="removeMainImage">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Additional Images Upload -->
+                            <div class="image-section">
+                                <h4>Additional Images <span class="optional">(optional)</span></h4>
+                                <p class="field-help">Add more images to showcase different views of the property</p>
+                                
+                                <div class="additional-images-container">
+                                    <div class="upload-zone additional-upload" id="additionalUploadZone">
+                                        <div class="upload-content">
+                                            <i class="fas fa-plus"></i>
+                                            <p>Add More Images</p>
+                                        </div>
+                                        <input type="file" id="additionalImages" name="additional_images" accept="image/*" multiple hidden>
+                                    </div>
+                                    
+                                    <div class="additional-images-grid" id="additionalImagesGrid">
+                                        <!-- Additional images will be added here dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Basic Information -->
+                        <div class="form-section">
+                            <h3>Basic Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="houseName">House Name <span class="required">*</span></label>
+                                    <input type="text" id="houseName" name="house_name" required 
+                                           placeholder="e.g., Modern Family Home">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="houseType">House Type <span class="required">*</span></label>
+                                    <select id="houseType" name="house_type" required>
+                                        <option value="">Select house type</option>
+                                        <option value="b">BedSitter</option>
+                                        <option value="s">Single Room</option>
+                                        <option value="1">1 Bed Room</option>
+                                        <option value="2">2 Bed Room</option>
+                                        <option value="3">3 Bed Room</option>
+                                        <option value="4">4 Bed Room</option>
+                                        <option value="e">Extra Classic</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="location">Location <span class="required">*</span></label>
+                                    <select id="location" name="location" required>
+                                        <option value="">Select location</option>
+                                        <!-- These would be populated from your Locations model -->
+                                        <option value="1">Kensington Market</option>
+                                        <option value="2">Downtown Campus</option>
+                                        <option value="3">Westside Campus</option>
+                                        <option value="4">Eastside Campus</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="price">Price Range <span class="required">*</span></label>
+                                    <select id="price" name="Price" required>
+                                        <option value="">Select price range</option>
+                                        <option value="0">Below 1500</option>
+                                        <option value="1">1500 - 2500</option>
+                                        <option value="2">2500 - 3500</option>
+                                        <option value="3">3500 - 4500</option>
+                                        <option value="4">4500 - 5500</option>
+                                        <option value="5">5500 - 6500</option>
+                                        <option value="6">Above 7000</option>
+                                        <option value="7">Any Price</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="size">Size (sq ft)</label>
+                                    <input type="number" id="size" name="size" 
+                                           placeholder="e.g., 1200" min="100" max="10000">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ratings">Initial Rating</label>
+                                    <select id="ratings" name="ratings">
+                                        <option value="">No rating</option>
+                                        <option value="1">1 Star</option>
+                                        <option value="2">2 Stars</option>
+                                        <option value="3">3 Stars</option>
+                                        <option value="4">4 Stars</option>
+                                        <option value="5">5 Stars</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Amenities -->
+                        <div class="form-section">
+                            <h3>Amenities</h3>
+                            <div class="amenities-grid">
+                                <div class="amenity-item">
+                                    <input type="checkbox" id="hasWifi" name="has_wifi">
+                                    <label for="hasWifi">
+                                        <i class="fas fa-wifi"></i>
+                                        <span>WiFi Available</span>
+                                    </label>
+                                </div>
+
+                                <div class="amenity-item">
+                                    <input type="checkbox" id="hasWater" name="has_water">
+                                    <label for="hasWater">
+                                        <i class="fas fa-tint"></i>
+                                        <span>Water Supply</span>
+                                    </label>
+                                </div>
+
+                                <div class="amenity-item">
+                                    <input type="checkbox" id="hasElectricity" name="has_electricity">
+                                    <label for="hasElectricity">
+                                        <i class="fas fa-bolt"></i>
+                                        <span>Electricity</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" id="previewBtn">
+                                <i class="fas fa-eye"></i>
+                                Preview
+                            </button>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-plus"></i>
+                                Add House
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- My Houses Tab -->
+            <div class="tab-content" id="my-houses">
+                <!-- Same content as before -->
+                <div class="page-header">
+                    <h1>My Houses</h1>
+                    <p>Manage your property listings</p>
+                </div>
+
+                <div class="houses-list">
+                    <!-- Sample house items -->
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="tab-content" id="analytics">
+                <!-- Same content as before -->
+                <div class="page-header">
+                    <h1>Analytics</h1>
+                    <p>View your property performance</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <!-- Sample analytics cards -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Property Preview</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-card">
+                    <div class="card-image">
+                        <img id="modalPreviewImg" src="/placeholder.svg" alt="Preview">
+                        <div class="image-badge" id="modalBadge" style="display: none;">Featured</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="modalLocation">Location</span>
+                        </div>
+                        <h3 class="property-title" id="modalTitle">Property Title</h3>
+                        <div class="details">
+                            <div class="detail">
+                                <i class="fas fa-home"></i>
+                                <span id="modalType">Type</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span id="modalSize">Size</span>
+                            </div>
+                        </div>
+                        <div class="amenities" id="modalAmenities">
+                            <!-- Amenities will be populated here -->
+                        </div>
+                        <div class="card-footer">
+                            <div class="price" id="modalPrice">Price Range</div>
+                            <button class="btn-contact">Contact</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image Gallery Preview -->
+                <div class="preview-gallery" id="previewGallery">
+                    <h4>Additional Images</h4>
+                    <div class="gallery-grid" id="modalGalleryGrid">
+                        <!-- Additional images will be shown here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <span>House added successfully!</span>
+        </div>
+    </div>
+
+    <script src="staff-script-multi.js"></script>
+</body>
+</html>
